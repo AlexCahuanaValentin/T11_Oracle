@@ -1,0 +1,46 @@
+¿Cambiar tu página de inicio? … Ahora está definida como Inicio. Puedes cambiar esta opción en cualquier momento en Configuración.
+CREATE TABLE planes_internet (
+    id integer  NOT NULL,
+    descripcion_plan varchar2(30)  NOT NULL,
+    velocidad_internet varchar2(20)  NOT NULL,
+    precio_mensual number(10,2)  NOT NULL,
+    tipo_plan varchar2(14)  NOT NULL,
+    CONSTRAINT planes_internet_pk PRIMARY KEY (id)
+) ;
+CREATE DATABASE prueba;
+CREATE TABLE employees (
+    employee_id NUMBER,
+    first_name VARCHAR2(50),
+    last_name VARCHAR2(50),
+    salary NUMBER
+);
+
+INSERT INTO planes_internet (id, descripcion_plan, velocidad_internet, precio_mensual, tipo_plan) VALUES (1, 'plan Velos', '50MB', 40, 'domestico');
+INSERT INTO planes_internet (id, descripcion_plan, velocidad_internet, precio_mensual, tipo_plan) VALUES (2, 'plan Velos', '100MB', 50, 'domestico');
+INSERT INTO planes_internet (id, descripcion_plan, velocidad_internet, precio_mensual, tipo_plan) VALUES (3, 'plan Velos', '150MB', 60, 'domestico');
+INSERT INTO planes_internet (id, descripcion_plan, velocidad_internet, precio_mensual, tipo_plan) VALUES (4, 'plan Velos', '200MB', 70, 'domestico');
+INSERT INTO planes_internet (id, descripcion_plan, velocidad_internet, precio_mensual, tipo_plan) VALUES (5, 'plan Velos', '500MB', 100, 'empresarial');
+
+
+//ejemplo de Minimo
+SELECT MIN(precio_mensual) AS plan_minimo
+FROM planes_internet;
+
+//ejemplo de Maximo
+SELECT MAX(precio_mensual) AS plan_máximo
+FROM planes_internet;
+
+/*ejemplo de STDDEV En este ejemplo, estamos calculando la 
+desviación estándar de los salarios en la tabla "employees". 
+La función STDDEV calculará la desviación estándar de los
+salarios y devolverá el resultado con el alias "desviación_estándar_salario".
+*/
+SELECT STDDEV(precio_mensual) AS desviación_estándar_salario
+FROM planes_internet;
+
+//ejemplo de la varianza
+SELECT VARIANCE(precio_mensual) AS varianza_salario
+FROM planes_internet;
+//ejemplo de variance de las ventas
+SELECT VARIANCE(monto) AS varianza_ventas
+FROM ventas;
